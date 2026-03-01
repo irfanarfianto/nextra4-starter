@@ -1,0 +1,102 @@
+import { Callout, Steps } from 'nextra/components'
+
+# Getting Started
+
+Everything you need to set up this template for your own project.
+
+## Prerequisites
+
+- **Node.js** v18 or higher
+- **pnpm** (recommended) or npm/yarn
+
+## Installation
+
+<Steps>
+### Clone or copy this template
+
+```bash
+cp -r nextra4-starter my-new-docs
+cd my-new-docs
+```
+
+### Install dependencies
+
+```bash
+pnpm install
+```
+
+### Customize site metadata
+
+Edit `app/layout.tsx` and update:
+
+```tsx
+export const metadata: Metadata = {
+  title: {
+    default: 'Your Site Name',
+    template: '%s – Your Site Name',
+  },
+  description: 'Your site description',
+  metadataBase: new URL('https://yoursite.com'),
+}
+```
+
+### Update the sidebar
+
+Edit `content/id/_meta.js` (Indonesian) and `content/en/_meta.js` (English):
+
+```js
+export default {
+  "index": "Home",
+  "my-page": "My Page",
+  "my-section": "My Section",
+}
+```
+
+### Start writing content
+
+Create `.mdx` files inside `content/id/` (Indonesian) and `content/en/` (English):
+
+| File | URL |
+| :--- | :--- |
+| `content/id/index.mdx` | `/` or `/id` |
+| `content/en/index.mdx` | `/en` |
+| `content/id/about.mdx` | `/about` |
+| `content/en/about.mdx` | `/en/about` |
+
+### Run the dev server
+
+```bash
+pnpm dev
+```
+
+Your site is now live at `http://localhost:3000`!
+</Steps>
+
+## Building for Production
+
+```bash
+pnpm build:search
+pnpm start
+```
+
+<Callout type="info">
+The `pnpm build:search` command runs `next build` followed by `npx pagefind` to generate the search index. Run this every time you add new content.
+</Callout>
+
+## About Bilingual Support
+
+Users can switch languages using the dropdown in the navbar. Content for each language lives in its own folder:
+
+```
+content/
+├── id/    ← Indonesian content
+│   ├── _meta.js
+│   └── *.mdx
+└── en/    ← English content
+    ├── _meta.js
+    └── *.mdx
+```
+
+<Callout type="warning">
+Each page needs to exist in both folders (`id/` and `en/`) to be accessible in both languages.
+</Callout>

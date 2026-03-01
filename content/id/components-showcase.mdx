@@ -1,0 +1,393 @@
+import { Callout, Cards, Steps, Tabs, Bleed, FileTree, Table } from 'nextra/components'
+
+# Showcase Komponen
+
+Referensi lengkap semua komponen bawaan Nextra yang tersedia di template ini.
+Salin-tempel contoh mana pun langsung ke halaman Anda.
+
+---
+
+## Callout
+
+Gunakan callout untuk menyoroti informasi penting. Mendukung empat tipe: `info`, `warning`, `error`, dan default.
+
+```mdx
+import { Callout } from 'nextra/components'
+
+<Callout type="info">Ini adalah callout info.</Callout>
+<Callout type="warning">Ini adalah peringatan.</Callout>
+<Callout type="error">Ini adalah error atau bahaya.</Callout>
+<Callout>Callout default (tanpa tipe).</Callout>
+```
+
+**Hasil:**
+
+<Callout type="info">Ini adalah callout **info** — bagus untuk tips atau konteks latar belakang.</Callout>
+<Callout type="warning">Ini adalah **peringatan** — gunakan untuk masalah potensial atau hal yang perlu diperhatikan.</Callout>
+<Callout type="error">Ini adalah **error** — gunakan untuk tindakan berbahaya atau catatan kritis.</Callout>
+<Callout>Ini adalah callout **default** — penekanan netral.</Callout>
+
+---
+
+## Steps
+
+Gunakan `Steps` untuk instruksi berurutan. Setiap heading `###` di dalamnya menjadi satu langkah bernomor.
+
+```mdx
+import { Steps } from 'nextra/components'
+
+<Steps>
+### Langkah Pertama
+Lakukan hal pertama.
+
+### Langkah Kedua
+Lakukan hal kedua.
+
+### Langkah Ketiga
+Selesai!
+</Steps>
+```
+
+**Hasil:**
+
+<Steps>
+### Langkah Pertama
+Lakukan hal pertama. Anda bisa menyertakan konten markdown apa pun — paragraf, kode, callout.
+
+### Langkah Kedua
+Lakukan hal kedua.
+
+### Langkah Ketiga
+Selesai!
+</Steps>
+
+---
+
+## Tabs
+
+Gunakan `Tabs` untuk menyajikan konten alternatif atau membandingkan opsi (misalnya pilihan package manager).
+
+```mdx
+import { Tabs } from 'nextra/components'
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tabs.Tab>pnpm install</Tabs.Tab>
+  <Tabs.Tab>npm install</Tabs.Tab>
+  <Tabs.Tab>yarn install</Tabs.Tab>
+</Tabs>
+```
+
+**Hasil:**
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tabs.Tab>
+    ```bash
+    pnpm install
+    pnpm dev
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```bash
+    npm install
+    npm run dev
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```bash
+    yarn install
+    yarn dev
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+---
+
+## Cards
+
+Gunakan `Cards` untuk navigasi atau menampilkan tautan terkait dalam bentuk kartu.
+
+```mdx
+import { Cards } from 'nextra/components'
+
+<Cards>
+  <Cards.Card title="Judul" href="/link" description="Deskripsi." />
+</Cards>
+```
+
+**Hasil:**
+
+<Cards>
+  <Cards.Card
+    title="Memulai →"
+    href="/getting-started"
+    description="Pelajari cara menginstal dan mengkonfigurasi situs dokumentasi Anda."
+  />
+  <Cards.Card
+    title="Panduan →"
+    href="/guides"
+    description="Jelajahi contoh bagian panduan multi-halaman."
+  />
+  <Cards.Card
+    title="Referensi →"
+    href="/reference"
+    description="Contoh halaman referensi datar di sidebar."
+  />
+</Cards>
+
+---
+
+## FileTree
+
+Gunakan `FileTree` untuk menampilkan struktur folder/file secara visual. Folder bisa diklik untuk buka/tutup.
+
+```mdx
+import { FileTree } from 'nextra/components'
+
+<FileTree>
+  <FileTree.Folder name="content" defaultOpen>
+    <FileTree.File name="_meta.js" />
+    <FileTree.File name="index.mdx" />
+    <FileTree.Folder name="guides">
+      <FileTree.File name="_meta.js" />
+      <FileTree.File name="index.mdx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+```
+
+**Hasil:**
+
+<FileTree>
+  <FileTree.Folder name="nextra4-starter" defaultOpen>
+    <FileTree.Folder name="app" defaultOpen>
+      <FileTree.File name="layout.tsx" />
+      <FileTree.Folder name="[lang]" defaultOpen>
+        <FileTree.File name="layout.tsx" />
+        <FileTree.Folder name="[[...mdxPath]]">
+          <FileTree.File name="page.tsx" />
+        </FileTree.Folder>
+      </FileTree.Folder>
+    </FileTree.Folder>
+    <FileTree.Folder name="content">
+      <FileTree.Folder name="id">
+        <FileTree.File name="_meta.js" />
+        <FileTree.File name="index.mdx" />
+        <FileTree.Folder name="guides">
+          <FileTree.File name="_meta.js" />
+          <FileTree.File name="index.mdx" />
+        </FileTree.Folder>
+      </FileTree.Folder>
+      <FileTree.Folder name="en">
+        <FileTree.File name="_meta.js" />
+        <FileTree.File name="index.mdx" />
+      </FileTree.Folder>
+    </FileTree.Folder>
+    <FileTree.File name="middleware.ts" />
+    <FileTree.File name="next.config.js" />
+    <FileTree.File name="package.json" />
+  </FileTree.Folder>
+</FileTree>
+
+---
+
+## Table
+
+Gunakan komponen `Table` dari Nextra untuk tabel dengan styling yang lebih kaya dibanding tabel markdown biasa. Cocok untuk data yang perlu JSX di dalamnya.
+
+```mdx
+import { Table } from 'nextra/components'
+
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Negara</Table.Th>
+      <Table.Th>Bendera</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>Indonesia</Table.Td>
+      <Table.Td>🇮🇩</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>
+```
+
+**Hasil:**
+
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Negara</Table.Th>
+      <Table.Th>Bendera</Table.Th>
+      <Table.Th>Ibu Kota</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>Indonesia</Table.Td>
+      <Table.Td>🇮🇩</Table.Td>
+      <Table.Td>Jakarta</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>Jepang</Table.Td>
+      <Table.Td>🇯🇵</Table.Td>
+      <Table.Td>Tokyo</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>Jerman</Table.Td>
+      <Table.Td>🇩🇪</Table.Td>
+      <Table.Td>Berlin</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>
+
+> **Tip:** Untuk tabel sederhana tanpa JSX, Anda tetap bisa menggunakan sintaks tabel markdown biasa.
+
+---
+
+## Bleed
+
+Gunakan `Bleed` untuk membuat konten sedikit melampaui lebar kontainer — berguna untuk gambar, banner, atau elemen lebar penuh.
+
+```mdx
+import { Bleed } from 'nextra/components'
+
+{/* Bleed biasa — melampaui padding kontainer */}
+<Bleed>
+  <div style={{ background: '#e0f2fe', padding: '1rem', textAlign: 'center' }}>
+    Ini konten Bleed biasa
+  </div>
+</Bleed>
+
+{/* Full bleed — melampaui hingga tepi layar */}
+<Bleed full>
+  <div style={{ background: '#dcfce7', padding: '1rem', textAlign: 'center' }}>
+    Ini konten full Bleed
+  </div>
+</Bleed>
+```
+
+**Hasil:**
+
+<Bleed>
+  <div style={{ background: 'var(--x-color-primary-200, #e0f2fe)', padding: '1.5rem', textAlign: 'center', borderRadius: '0.5rem', fontWeight: 600 }}>
+    🌊 Bleed biasa — konten melampaui padding kontainer
+  </div>
+</Bleed>
+
+<Bleed full>
+  <div style={{ background: 'var(--x-color-primary-800, #1e3a5f)', color: 'white', padding: '1.5rem', textAlign: 'center', fontWeight: 600, marginTop: '1rem' }}>
+    🌊 Full Bleed — konten melampaui hingga tepi layar
+  </div>
+</Bleed>
+
+---
+
+## Blok Kode
+
+Blok kode dengan syntax highlighting sudah bawaan. Tambahkan `filename` untuk menampilkan nama file, dan gunakan highlight baris dengan `{n}`.
+
+````mdx
+```tsx filename="app/layout.tsx" {3}
+export default function Layout({ children }) {
+  return (
+    <div>{children}</div>   // ← baris ini di-highlight
+  )
+}
+```
+````
+
+**Hasil:**
+
+```tsx filename="app/layout.tsx" {3}
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <div>{children}</div>
+  )
+}
+```
+
+---
+
+## Tabel Markdown
+
+Tabel markdown standar tetap berfungsi dan sudah diberi styling otomatis oleh Nextra:
+
+```mdx
+| Perintah | Deskripsi |
+| :--- | :--- |
+| `pnpm dev` | Jalankan server dev |
+| `pnpm build:search` | Build + indeks pencarian |
+```
+
+**Hasil:**
+
+| Perintah | Deskripsi |
+| :--- | :--- |
+| `pnpm dev` | Jalankan server dev di `http://localhost:3000` |
+| `pnpm build:search` | Build + buat indeks pencarian Pagefind |
+| `pnpm start` | Jalankan server produksi |
+
+---
+
+## Blockquote
+
+```mdx
+> Ini adalah blockquote. Gunakan untuk kutipan penting atau penjelasan singkat.
+```
+
+**Hasil:**
+
+> Ini adalah blockquote. Gunakan untuk kutipan penting, penjelasan singkat, atau hal yang perlu diperhatikan.
+
+---
+
+## Banner (Layout Component)
+
+`Banner` ditampilkan di bagian paling atas situs, di atas navbar. Aktifkan di `app/[lang]/layout.tsx`:
+
+```tsx filename="app/[lang]/layout.tsx"
+import { Banner, Head } from 'nextra/components'
+
+// Di dalam return:
+<Banner storageKey="release-v1" dismissible>
+  🎉 Template v1.0 sudah dirilis! <a href="/guides">Lihat panduan →</a>
+</Banner>
+```
+
+Props yang tersedia:
+
+| Prop | Tipe | Default | Deskripsi |
+| :--- | :--- | :--- | :--- |
+| `dismissible` | `boolean` | `true` | Banner bisa ditutup pengguna |
+| `storageKey` | `string` | `'nextra-banner'` | Key localStorage untuk menyimpan state tutup |
+
+---
+
+## Menggabungkan Komponen
+
+Semua komponen bisa disarangkan secara bebas:
+
+<Tabs items={['Contoh', 'Kode']}>
+  <Tabs.Tab>
+    <Callout type="info">
+      Anda bisa meletakkan **Callout** di dalam **Tab**, atau **FileTree** di dalam **Steps**. Gabungkan sesuka hati!
+    </Callout>
+    <Cards>
+      <Cards.Card title="Card dalam Tab" href="#" description="Sangat berguna untuk navigasi kontekstual." />
+    </Cards>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```mdx
+    <Tabs items={['Contoh', 'Kode']}>
+      <Tabs.Tab>
+        <Callout type="info">Callout di dalam Tab!</Callout>
+        <Cards>
+          <Cards.Card title="Card dalam Tab" href="#" description="Berfungsi!" />
+        </Cards>
+      </Tabs.Tab>
+    </Tabs>
+    ```
+  </Tabs.Tab>
+</Tabs>

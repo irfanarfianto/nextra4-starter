@@ -1,0 +1,389 @@
+import { Callout, Cards, Steps, Tabs, Bleed, FileTree, Table } from 'nextra/components'
+
+# Components Showcase
+
+A living reference for all built-in Nextra components available in this template.
+Copy-paste any example directly into your own pages.
+
+---
+
+## Callout
+
+Use callouts to highlight important information. Supports four types: `info`, `warning`, `error`, and default.
+
+```mdx
+import { Callout } from 'nextra/components'
+
+<Callout type="info">This is an info callout.</Callout>
+<Callout type="warning">This is a warning.</Callout>
+<Callout type="error">This is an error or danger notice.</Callout>
+<Callout>Default callout (no type).</Callout>
+```
+
+**Result:**
+
+<Callout type="info">This is an **info** callout — great for tips or background context.</Callout>
+<Callout type="warning">This is a **warning** — use for potential issues or caveats.</Callout>
+<Callout type="error">This is an **error** — use for dangerous actions or critical notes.</Callout>
+<Callout>This is a **default** callout — neutral emphasis.</Callout>
+
+---
+
+## Steps
+
+Use `Steps` for sequential instructions. Each `###` heading inside becomes a numbered step.
+
+```mdx
+import { Steps } from 'nextra/components'
+
+<Steps>
+### Step One
+Do the first thing.
+
+### Step Two
+Do the second thing.
+
+### Step Three
+Done!
+</Steps>
+```
+
+**Result:**
+
+<Steps>
+### Step One
+Do the first thing. You can include any markdown content here — paragraphs, code blocks, callouts.
+
+### Step Two
+Do the second thing.
+
+### Step Three
+Done!
+</Steps>
+
+---
+
+## Tabs
+
+Use `Tabs` to present alternative content or compare options (e.g. package manager choices).
+
+```mdx
+import { Tabs } from 'nextra/components'
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tabs.Tab>pnpm install</Tabs.Tab>
+  <Tabs.Tab>npm install</Tabs.Tab>
+  <Tabs.Tab>yarn install</Tabs.Tab>
+</Tabs>
+```
+
+**Result:**
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tabs.Tab>
+    ```bash
+    pnpm install
+    pnpm dev
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```bash
+    npm install
+    npm run dev
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```bash
+    yarn install
+    yarn dev
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+---
+
+## Cards
+
+Use `Cards` for navigation or highlighting related links in a card layout.
+
+```mdx
+import { Cards } from 'nextra/components'
+
+<Cards>
+  <Cards.Card title="Title" href="/link" description="Description." />
+</Cards>
+```
+
+**Result:**
+
+<Cards>
+  <Cards.Card
+    title="Getting Started →"
+    href="/getting-started"
+    description="Learn how to install and configure your documentation site."
+  />
+  <Cards.Card
+    title="Guides →"
+    href="/guides"
+    description="Explore multi-page guide sections with accordion sidebar."
+  />
+  <Cards.Card
+    title="Reference →"
+    href="/reference"
+    description="Example of a flat reference page in the sidebar."
+  />
+</Cards>
+
+---
+
+## FileTree
+
+Use `FileTree` to visually represent a folder/file structure. Folders are interactive — click to expand/collapse.
+
+```mdx
+import { FileTree } from 'nextra/components'
+
+<FileTree>
+  <FileTree.Folder name="content" defaultOpen>
+    <FileTree.File name="_meta.js" />
+    <FileTree.File name="index.mdx" />
+    <FileTree.Folder name="guides">
+      <FileTree.File name="_meta.js" />
+      <FileTree.File name="index.mdx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+```
+
+**Result:**
+
+<FileTree>
+  <FileTree.Folder name="nextra4-starter" defaultOpen>
+    <FileTree.Folder name="app" defaultOpen>
+      <FileTree.File name="layout.tsx" />
+      <FileTree.Folder name="[lang]" defaultOpen>
+        <FileTree.File name="layout.tsx" />
+        <FileTree.Folder name="[[...mdxPath]]">
+          <FileTree.File name="page.tsx" />
+        </FileTree.Folder>
+      </FileTree.Folder>
+    </FileTree.Folder>
+    <FileTree.Folder name="content">
+      <FileTree.Folder name="id">
+        <FileTree.File name="_meta.js" />
+        <FileTree.File name="index.mdx" />
+        <FileTree.Folder name="guides">
+          <FileTree.File name="_meta.js" />
+          <FileTree.File name="index.mdx" />
+        </FileTree.Folder>
+      </FileTree.Folder>
+      <FileTree.Folder name="en">
+        <FileTree.File name="_meta.js" />
+        <FileTree.File name="index.mdx" />
+      </FileTree.Folder>
+    </FileTree.Folder>
+    <FileTree.File name="middleware.ts" />
+    <FileTree.File name="next.config.js" />
+    <FileTree.File name="package.json" />
+  </FileTree.Folder>
+</FileTree>
+
+---
+
+## Table
+
+Use Nextra's `Table` component for richer-styled tables — especially when you need JSX content inside cells.
+
+```mdx
+import { Table } from 'nextra/components'
+
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Country</Table.Th>
+      <Table.Th>Flag</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>France</Table.Td>
+      <Table.Td>🇫🇷</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>
+```
+
+**Result:**
+
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Country</Table.Th>
+      <Table.Th>Flag</Table.Th>
+      <Table.Th>Capital</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>Indonesia</Table.Td>
+      <Table.Td>🇮🇩</Table.Td>
+      <Table.Td>Jakarta</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>Japan</Table.Td>
+      <Table.Td>🇯🇵</Table.Td>
+      <Table.Td>Tokyo</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>Germany</Table.Td>
+      <Table.Td>🇩🇪</Table.Td>
+      <Table.Td>Berlin</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>
+
+> **Tip:** For simple tables without JSX, you can still use standard markdown table syntax.
+
+---
+
+## Bleed
+
+Use `Bleed` to make content slightly exceed the container width — useful for images, banners, or wide elements.
+
+```mdx
+import { Bleed } from 'nextra/components'
+
+{/* Normal bleed — exceeds container padding */}
+<Bleed>
+  <div>Content wider than the text column</div>
+</Bleed>
+
+{/* Full bleed — extends to the full screen edge */}
+<Bleed full>
+  <div>Full-width content</div>
+</Bleed>
+```
+
+**Result:**
+
+<Bleed>
+  <div style={{ background: 'var(--x-color-primary-200, #e0f2fe)', padding: '1.5rem', textAlign: 'center', borderRadius: '0.5rem', fontWeight: 600 }}>
+    🌊 Normal Bleed — content exceeds container padding
+  </div>
+</Bleed>
+
+<Bleed full>
+  <div style={{ background: 'var(--x-color-primary-800, #1e3a5f)', color: 'white', padding: '1.5rem', textAlign: 'center', fontWeight: 600, marginTop: '1rem' }}>
+    🌊 Full Bleed — content extends to full screen width
+  </div>
+</Bleed>
+
+---
+
+## Code Blocks
+
+Fenced code blocks with syntax highlighting are built-in. Add `filename` to show a file label, and highlight specific lines with `{n}`.
+
+````mdx
+```tsx filename="app/layout.tsx" {3}
+export default function Layout({ children }) {
+  return (
+    <div>{children}</div>   // ← this line is highlighted
+  )
+}
+```
+````
+
+**Result:**
+
+```tsx filename="app/layout.tsx" {3}
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <div>{children}</div>
+  )
+}
+```
+
+---
+
+## Markdown Tables
+
+Standard markdown tables work out of the box with automatic Nextra styling:
+
+```mdx
+| Command | Description |
+| :--- | :--- |
+| `pnpm dev` | Start dev server |
+| `pnpm build:search` | Build + search index |
+```
+
+**Result:**
+
+| Command | Description |
+| :--- | :--- |
+| `pnpm dev` | Start dev server at `http://localhost:3000` |
+| `pnpm build:search` | Build + generate Pagefind search index |
+| `pnpm start` | Start production server |
+
+---
+
+## Blockquote
+
+```mdx
+> This is a blockquote. Use it for pull quotes or notable passages.
+```
+
+**Result:**
+
+> This is a blockquote. Use it for pull quotes, notable passages, or simplified explanations.
+
+---
+
+## Banner (Layout Component)
+
+`Banner` appears at the very top of the site, above the navbar. Enable it in `app/[lang]/layout.tsx`:
+
+```tsx filename="app/[lang]/layout.tsx"
+import { Banner, Head } from 'nextra/components'
+
+// Inside the return:
+<Banner storageKey="release-v1" dismissible>
+  🎉 Template v1.0 released! <a href="/guides">View the guide →</a>
+</Banner>
+```
+
+Available props:
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `dismissible` | `boolean` | `true` | Whether the banner can be closed by the user |
+| `storageKey` | `string` | `'nextra-banner'` | localStorage key to persist the dismissed state |
+
+---
+
+## Combining Components
+
+All components can be freely nested:
+
+<Tabs items={['Example', 'Code']}>
+  <Tabs.Tab>
+    <Callout type="info">
+      You can put a **Callout** inside a **Tab**, or a **FileTree** inside **Steps**. Mix and match freely!
+    </Callout>
+    <Cards>
+      <Cards.Card title="Nested Card" href="#" description="Cards inside tabs work great for contextual navigation." />
+    </Cards>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```mdx
+    <Tabs items={['Example', 'Code']}>
+      <Tabs.Tab>
+        <Callout type="info">Callout inside a Tab!</Callout>
+        <Cards>
+          <Cards.Card title="Nested Card" href="#" description="Works!" />
+        </Cards>
+      </Tabs.Tab>
+    </Tabs>
+    ```
+  </Tabs.Tab>
+</Tabs>

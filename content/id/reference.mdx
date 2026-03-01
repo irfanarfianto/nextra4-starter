@@ -1,0 +1,34 @@
+# Referensi
+
+> Ini adalah contoh halaman referensi datar — berada langsung di `content/id/reference.mdx`.
+
+## Penggunaan
+
+Gunakan halaman datar untuk:
+- Halaman mandiri tunggal yang tidak memerlukan sub-bagian
+- Tabel referensi dan dokumentasi API
+- Glosarium dan lembar contekan
+
+## Contoh Tabel Referensi
+
+| Properti | Tipe | Default | Deskripsi |
+| :--- | :--- | :--- | :--- |
+| `title` | `string` | — | Judul halaman yang ditampilkan di tab browser dan sidebar |
+| `description` | `string` | — | Deskripsi halaman untuk meta tag SEO |
+| `defaultShowCopyCode` | `boolean` | `false` | Tampilkan tombol salin di semua blok kode |
+| `sidebar.defaultMenuCollapseLevel` | `number` | `2` | Level nesting di mana folder mulai diciutkan |
+
+## Cheatsheet _meta.js
+
+```js
+export default {
+  "nama-halaman": "Label Sidebar",
+  "---": { type: 'separator', title: 'Judul Bagian' },
+  "halaman-tersembunyi": { display: 'hidden' },
+  "eksternal": {
+    title: "Tautan Eksternal",
+    href: "https://nextra.site",
+    newWindow: true
+  },
+}
+```

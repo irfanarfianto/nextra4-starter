@@ -1,0 +1,22 @@
+import { Cards } from 'nextra/components'
+
+# Panduan
+
+Ini adalah halaman indeks untuk bagian **Panduan** — contoh folder multi-halaman.
+
+## Struktur Bagian Ini
+
+```
+content/id/guides/
+├── _meta.js
+├── index.mdx         ← halaman ini (/guides)
+├── installation.mdx  ← /guides/installation
+└── configuration.mdx ← /guides/configuration
+```
+
+## Dalam Bagian Ini
+
+<Cards>
+  <Cards.Card title="Instalasi" href="/guides/installation" description="Panduan setup langkah demi langkah." />
+  <Cards.Card title="Konfigurasi" href="/guides/configuration" description="Semua opsi konfigurasi dijelaskan." />
+</Cards>

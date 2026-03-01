@@ -1,0 +1,54 @@
+import { Cards } from 'nextra/components'
+
+# Selamat Datang di Dokumentasi Saya 👋
+
+> **Ganti teks ini dengan pengantar Anda sendiri.** Ini adalah halaman utama situs dokumentasi Anda.
+
+Template ini dibangun dengan **Nextra 4** dan **Next.js App Router**. Sudah mencakup semua yang Anda butuhkan untuk langsung mulai menulis dokumentasi — termasuk dukungan dua bahasa (🇮🇩 Indonesia & 🇬🇧 English).
+
+## Apa yang Tersedia
+
+- ✅ Setup Nextra 4 + Next.js App Router
+- ✅ Dukungan TypeScript
+- ✅ Dukungan dua bahasa (Indonesia & English)
+- ✅ Pencarian teks penuh dengan Pagefind (setelah `pnpm build:search`)
+- ✅ Navigasi sidebar dengan `_meta.js`
+- ✅ Semua komponen Nextra siap digunakan
+
+## Mulai Cepat
+
+```bash
+# Install dependensi
+pnpm install
+
+# Jalankan server pengembangan
+pnpm dev
+
+# Build dengan indeks pencarian
+pnpm build:search
+```
+
+## Jelajahi Template
+
+<Cards>
+  <Cards.Card
+    title="Memulai →"
+    href="/getting-started"
+    description="Siapkan dan sesuaikan situs dokumentasi Anda."
+  />
+  <Cards.Card
+    title="Panduan →"
+    href="/guides"
+    description="Contoh bagian multi-halaman dengan sidebar accordion."
+  />
+  <Cards.Card
+    title="Showcase Komponen →"
+    href="/components-showcase"
+    description="Lihat semua komponen Nextra yang tersedia beserta contohnya."
+  />
+  <Cards.Card
+    title="Referensi →"
+    href="/reference"
+    description="Contoh halaman referensi datar di sidebar."
+  />
+</Cards>

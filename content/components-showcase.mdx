@@ -1,0 +1,214 @@
+import { Callout, Cards, Steps, Tabs } from 'nextra/components'
+
+# Showcase Komponen
+
+Referensi lengkap semua komponen Nextra yang tersedia di template ini. Salin-tempel contoh mana pun langsung ke halaman Anda sendiri.
+
+---
+
+## Callout
+
+Gunakan callout untuk menyoroti informasi penting.
+
+```mdx
+import { Callout } from 'nextra/components'
+
+<Callout type="info">Ini adalah callout info.</Callout>
+<Callout type="warning">Ini adalah peringatan.</Callout>
+<Callout type="error">Ini adalah pemberitahuan error atau bahaya.</Callout>
+<Callout>Callout default (tanpa tipe).</Callout>
+```
+
+**Hasil:**
+
+<Callout type="info">Ini adalah callout **info** — bagus untuk tips atau konteks latar belakang.</Callout>
+<Callout type="warning">Ini adalah **peringatan** — gunakan untuk masalah potensial atau catatan penting.</Callout>
+<Callout type="error">Ini adalah **error** — gunakan untuk tindakan berbahaya atau catatan kritis.</Callout>
+<Callout>Ini adalah callout **default** — penekanan netral.</Callout>
+
+---
+
+## Steps
+
+Gunakan steps untuk instruksi berurutan.
+
+```mdx
+import { Steps } from 'nextra/components'
+
+<Steps>
+### Langkah Pertama
+Lakukan hal pertama.
+
+### Langkah Kedua
+Lakukan hal kedua.
+
+### Langkah Ketiga
+Selesai!
+</Steps>
+```
+
+**Hasil:**
+
+<Steps>
+### Langkah Pertama
+Lakukan hal pertama. Anda bisa menyertakan konten markdown apa pun di sini — paragraf, blok kode, callout.
+
+### Langkah Kedua
+Lakukan hal kedua.
+
+### Langkah Ketiga
+Selesai!
+</Steps>
+
+---
+
+## Tabs
+
+Gunakan tabs untuk menyajikan konten alternatif atau membandingkan opsi.
+
+```mdx
+import { Tabs } from 'nextra/components'
+
+<Tabs items={['Tab Satu', 'Tab Dua', 'Tab Tiga']}>
+  <Tabs.Tab>Konten untuk tab pertama.</Tabs.Tab>
+  <Tabs.Tab>Konten untuk tab kedua.</Tabs.Tab>
+  <Tabs.Tab>Konten untuk tab ketiga.</Tabs.Tab>
+</Tabs>
+```
+
+**Hasil:**
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tabs.Tab>
+    ```bash
+    pnpm install
+    pnpm dev
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```bash
+    npm install
+    npm run dev
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```bash
+    yarn install
+    yarn dev
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+---
+
+## Cards
+
+Gunakan cards untuk navigasi atau menyoroti tautan terkait.
+
+```mdx
+import { Cards } from 'nextra/components'
+
+<Cards>
+  <Cards.Card title="Judul Card" href="/tautan" description="Deskripsi card." />
+  <Cards.Card title="Card Lain" href="/lainnya" description="Deskripsi lainnya." />
+</Cards>
+```
+
+**Hasil:**
+
+<Cards>
+  <Cards.Card
+    title="Memulai →"
+    href="/getting-started"
+    description="Pelajari cara menginstal dan mengonfigurasi situs dokumentasi Anda."
+  />
+  <Cards.Card
+    title="Panduan →"
+    href="/guides"
+    description="Jelajahi contoh bagian panduan multi-halaman."
+  />
+</Cards>
+
+---
+
+## Blok Kode
+
+Blok kode dengan syntax highlighting sudah bawaan. Tambahkan nama file dengan komentar:
+
+````mdx
+```tsx filename="app/layout.tsx"
+export default function Layout({ children }) {
+  return <div>{children}</div>
+}
+```
+````
+
+**Hasil:**
+
+```tsx filename="app/layout.tsx"
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return <div>{children}</div>
+}
+```
+
+---
+
+## Tabel
+
+Tabel markdown standar sudah berfungsi langsung:
+
+```mdx
+| Kolom A | Kolom B | Kolom C |
+| :--- | :---: | ---: |
+| Kiri | Tengah | Kanan |
+| rata kiri | rata tengah | rata kanan |
+```
+
+**Hasil:**
+
+| Kolom A | Kolom B | Kolom C |
+| :--- | :---: | ---: |
+| Kiri | Tengah | Kanan |
+| rata kiri | rata tengah | rata kanan |
+
+---
+
+## Blockquote
+
+```mdx
+> Ini adalah blockquote. Gunakan untuk kutipan penting atau penjelasan singkat.
+```
+
+**Hasil:**
+
+> Ini adalah blockquote. Gunakan untuk kutipan penting, penjelasan singkat, atau hal yang perlu diperhatikan.
+
+---
+
+## Menggabungkan Komponen
+
+Komponen bisa disarangkan secara bebas:
+
+<Tabs items={['Contoh', 'Kode']}>
+  <Tabs.Tab>
+    <Callout type="info">
+      Anda bisa meletakkan **Callout** di dalam **Tab**. Atau `<Steps>` di dalam `<Tabs.Tab>`. Gabungkan sesuka hati.
+    </Callout>
+
+    <Cards>
+      <Cards.Card title="Card Bersarang" href="#" description="Card di dalam tab sangat bagus untuk navigasi." />
+    </Cards>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```mdx
+    <Tabs items={['Contoh', 'Kode']}>
+      <Tabs.Tab>
+        <Callout type="info">Callout di dalam Tab!</Callout>
+        <Cards>
+          <Cards.Card title="Card di dalam Tab" href="#" description="Berfungsi!" />
+        </Cards>
+      </Tabs.Tab>
+    </Tabs>
+    ```
+  </Tabs.Tab>
+</Tabs>

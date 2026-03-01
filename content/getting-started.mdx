@@ -1,0 +1,106 @@
+import { Callout, Steps } from 'nextra/components'
+
+# Memulai
+
+Semua yang Anda butuhkan untuk menyiapkan template ini untuk proyek Anda sendiri.
+
+## Prasyarat
+
+- **Node.js** v18 atau lebih tinggi
+- **pnpm** (direkomendasikan) atau npm/yarn
+
+## Instalasi
+
+<Steps>
+### Salin template ini
+
+```bash
+cp -r nextra4-starter nama-docs-saya
+cd nama-docs-saya
+```
+
+### Install dependensi
+
+```bash
+pnpm install
+```
+
+### Sesuaikan metadata situs
+
+Edit `app/layout.tsx` dan perbarui:
+
+```tsx
+export const metadata: Metadata = {
+  title: {
+    default: 'Nama Situs Anda',        // ← Ganti ini
+    template: '%s – Nama Situs Anda',
+  },
+  description: 'Deskripsi situs Anda',
+  metadataBase: new URL('https://situsanda.com'),
+}
+```
+
+Perbarui juga logo Navbar:
+```tsx
+<Navbar
+  logo={<span style={{ fontWeight: 700 }}>🚀 Logo Anda</span>}
+  projectLink="https://github.com/repo-anda"
+/>
+```
+
+### Perbarui sidebar
+
+Edit `content/_meta.js` untuk menentukan struktur navigasi Anda:
+
+```js
+export default {
+  "index": "Beranda",
+  "halaman-saya": "Halaman Saya",          // tautan datar (satu file .mdx)
+  "bagian-saya": "Bagian Saya",            // accordion (folder dengan sub-halaman)
+}
+```
+
+### Mulai menulis konten
+
+Buat file `.mdx` di dalam direktori `content/`. Nama file menjadi path URL:
+
+| File | URL |
+| :--- | :--- |
+| `content/index.mdx` | `/` |
+| `content/tentang.mdx` | `/tentang` |
+| `content/panduan/index.mdx` | `/panduan` |
+| `content/panduan/setup.mdx` | `/panduan/setup` |
+
+### Jalankan server pengembangan
+
+```bash
+pnpm dev
+```
+
+Situs Anda sekarang aktif di `http://localhost:3000`!
+</Steps>
+
+## Build untuk Produksi
+
+```bash
+# Build + buat indeks pencarian dalam satu perintah
+pnpm build:search
+
+# Jalankan server produksi
+pnpm start
+```
+
+<Callout type="info">
+Perintah `pnpm build:search` menjalankan `next build` diikuti `npx pagefind` untuk membuat indeks pencarian Pagefind. Anda perlu menjalankan ini setiap kali menambahkan konten baru agar pencarian tetap terbaru.
+</Callout>
+
+## Halaman Tunggal vs. Bagian Folder
+
+| Kebutuhan | Struktur file | Hasil sidebar |
+| :--- | :--- | :--- |
+| Satu halaman, tanpa sub-halaman | `content/halaman.mdx` | Tautan datar, tanpa accordion |
+| Beberapa sub-halaman | `content/bagian/index.mdx` + anak-anak | Accordion yang dapat dilipat |
+
+<Callout type="warning">
+Jika sebuah folder hanya memiliki `index.mdx` dan tidak ada yang lain, tetap akan ditampilkan sebagai accordion dengan satu item. Untuk menghindari ini, letakkan file langsung sebagai `content/nama-bagian.mdx`.
+</Callout>

@@ -1,0 +1,34 @@
+# Reference
+
+> This is an example of a flat reference page — it lives directly at `content/en/reference.mdx`.
+
+## Usage
+
+Use flat pages for:
+- Single standalone pages that don't need sub-sections
+- Reference tables and API docs
+- Glossaries and cheatsheets
+
+## Example Reference Table
+
+| Property | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `title` | `string` | — | Page title shown in browser tab and sidebar |
+| `description` | `string` | — | Page description for SEO meta tags |
+| `defaultShowCopyCode` | `boolean` | `false` | Show copy button on all code blocks |
+| `sidebar.defaultMenuCollapseLevel` | `number` | `2` | Nesting level where folders start collapsed |
+
+## _meta.js Cheatsheet
+
+```js
+export default {
+  "page-name": "Sidebar Label",
+  "---": { type: 'separator', title: 'Section Title' },
+  "hidden-page": { display: 'hidden' },
+  "external": {
+    title: "External Link",
+    href: "https://nextra.site",
+    newWindow: true
+  },
+}
+```

@@ -1,0 +1,30 @@
+import { Cards } from 'nextra/components'
+
+# Panduan
+
+Ini adalah halaman indeks untuk bagian **Panduan** — contoh folder multi-halaman. Karena folder ini memiliki lebih dari satu halaman, Nextra merendernya sebagai accordion yang dapat dilipat di sidebar.
+
+## Struktur Bagian Ini
+
+```
+content/guides/
+├── _meta.js          ← menentukan urutan & label sidebar untuk bagian ini
+├── index.mdx         ← halaman ini (dapat diakses di /guides)
+├── installation.mdx  ← dapat diakses di /guides/installation
+└── configuration.mdx ← dapat diakses di /guides/configuration
+```
+
+## Dalam Bagian Ini
+
+<Cards>
+  <Cards.Card
+    title="Instalasi"
+    href="/guides/installation"
+    description="Panduan setup langkah demi langkah."
+  />
+  <Cards.Card
+    title="Konfigurasi"
+    href="/guides/configuration"
+    description="Semua opsi konfigurasi dijelaskan."
+  />
+</Cards>
